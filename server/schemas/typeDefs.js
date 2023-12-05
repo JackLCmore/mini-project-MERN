@@ -1,25 +1,25 @@
 const typeDefs = `
-type tech {
-    _id: ID
-    name: String 
+type Tech {
+    _id: ID!
+    name: String! 
 }
 
-type matchup {
-    _id: ID
-    tech1: String
-    tech2: String
-    tech1_votes: Number
-    tech2_votes: Number
+type Matchup {
+    _id: ID!
+    tech1: String!
+    tech2: String!
+    tech1_votes: Int
+    tech2_votes: Int
 }
 
 type Query {
-    tech: [Tech]!
-    matchup(_id: ID!): Matchup
+    tech: [Tech]
+    matchup(_id: String): [Matchup]
 }
 
-type Mutations {
+type Mutation {
     createMatchup(tech1: String!, tech2: String!): Matchup 
-    createVote(_id: String!, techNum: Int!): 
+    createVote(_id: String!, techNum: Int!): Matchup
 }
 `;
 
